@@ -1,27 +1,15 @@
-# AngularHelloWorld
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
+## Description
 
-## Development server
+"앵귤러 마스터북"을 학습하며 배운 내용을 정리합니다.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### 1.9.3 템플릿 변수, 이벤트 바인딩
 
-## Code scaffolding
+아래와 같이 템플릿 변수(#titleElt)를 선언하여 변수로 사용할 수 있습니다.
+템플릿 변수는 이벤트 바인딩할 때 변수로 넘겨줄 수 있습니다.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+``` bash
+// titleElt는 HTMLInputElement이기 때문에 컴포넌트에서 값에 접근하기 위해서는 titleElt.value로 접근해야 합니다.
+<input name="title" #titleElt>
+<button (click)="addTitle(titleElt)">
+```
