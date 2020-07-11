@@ -29,3 +29,22 @@
 ```
 자바스크립트는 기본적으로 click 이벤트를 모든 부모 컴포넌트에게 전달하기 때문에, 클릭하게 되면 브라우저가 빈 링크를 따라 가려고 하다가 리로드 되어 의도했던 대로 동작하지 않게 됩니다.
 이를 방지하기 위한 방법으로는 이벤트 핸들러가 false를 리턴하게 하는 방법이 있습니다.
+
+### 1.12.2 점수별 재정렬
+```bash
+sortedArticles(): Article[] {
+  return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
+}
+```
+java의 collection framework에서 comparator를 이용하여 정렬조건을 설정하듯이, javascript에서도 위와 같이 정렬할 수 있습니다. (위 예제의 경우 votes가 높은 Article이 맨 앞으로 옵니다.)
+
+```bash
+<div class="ui grid posts">
+  <app-article
+    *ngFor="let article of sortedArticles()"
+    [article]="article">
+  </app-article>
+</div>
+```
+위와 같이 *ngFor 를 사용할 때 sortedArticles()로부터 listItem 데이터를 가져오면, articles의 정보가 갱신될 때마다 새로 그려주는 것 같습니다.
+votes가 변경됨에 따라 다시 정렬되고 화면이 다시 랜더링 되는 것을 확인할 수 있습니다.
